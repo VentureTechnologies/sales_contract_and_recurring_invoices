@@ -34,7 +34,7 @@
                             class="oe_highlight"
                             string="Generate Invoice"
                             type="object"
-                            invisible="state not in ('Ongoing','Expire Soon')"/>
+                            invisible="state not in ('Ongoing','Expire Soon')"
                             help="Generate Invoices for your Contracts"/>
                     <button name="action_lock" class="oe_highlight"
                             string="Lock" type="object"
