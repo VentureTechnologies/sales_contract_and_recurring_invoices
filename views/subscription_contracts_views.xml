@@ -39,51 +39,38 @@
                     <button name="action_lock" class="oe_highlight"
                             string="Lock" type="object"
                             help="Lock your Subscription Contracts"
-                            invisible="lock or state != 'Ongoing'"
-                    />
+                            invisible="lock or state != 'Ongoing'"/>
                     <button name="action_to_unlock" class="oe_highlight"
                             string="Unlock" type="object"
                             help="Unlock your Subscription Contracts"
-                            invisible="not lock or state != 'Ongoing'"
-                    />
+                            invisible="not lock or state != 'Ongoing'"/>
                     <button name="action_to_cancel" class="oe_highlight"
                             string="Cancel" type="object"
                             help="Cancel; your Subscription Contracts"
-                            invisible="state not in ('Ongoing', 'Expire Soon')"
-                    />
+                            invisible="state not in ('Ongoing', 'Expire Soon')"/>
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box"  invisible="not invoices_active">
+                    <div class="oe_button_box" name="button_box" invisible="not invoices_active">
                         <button class="oe_stat_button" type="object"
                                 name="action_get_invoice"
                                 icon="fa-pencil-square-o"
-                                invisible="state not in ('Ongoing', 'Expire Soon', 'Expired')"
-                                >
-                            <field string="Invoices"
-                                   name="invoice_count" widget="statinfo"
-                            />
+                                invisible="state not in ('Ongoing', 'Expire Soon', 'Expired')">
+                            <field string="Invoices" name="invoice_count" widget="statinfo"/>
                         </button>
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Contracts"
-                                   readonly="lock"/>
+                            <field name="name" placeholder="Contracts" readonly="lock"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="reference"
-                                   readonly="lock"/>
-                            <field name="partner_id" options="{'no_create': True}"
-                                   readonly="lock"/>
-                            <field name="recurring_period"
-                                   readonly="lock"/>
-                            <field name="recurring_period_interval"
-                                   readonly="lock"/>
-                            <field name="recurring_invoice"
-                                   readonly="lock"/>
-                            <field name="next_invoice_date"
-                                   readonly="lock"/>
+                            <field name="reference" readonly="lock"/>
+                            <field name="partner_id" options="{'no_create': True}" readonly="lock"/>
+                            <field name="recurring_period" readonly="lock"/>
+                            <field name="recurring_period_interval" readonly="lock"/>
+                            <field name="recurring_invoice" readonly="lock"/>
+                            <field name="next_invoice_date" readonly="lock"/>
                             <field name="current_reference" invisible="1"/>
                             <field name="invoices_active" invisible="1"/>
                         </group>
@@ -132,7 +119,7 @@
     </record>
     <!-- Subscription contract tree view -->
     <record id="subscription_contracts_view_tree" model="ir.ui.view">
-        <field name="name">subscription.contracts.view.tree</field>
+        <field name="name">subscription.contracts.view.list</field>
         <field name="model">subscription.contracts</field>
         <field name="arch" type="xml">
             <list>
@@ -152,7 +139,7 @@
     </record>
     <!-- Contract line tree view -->
     <record id="subscription_contracts_line_view_tree" model="ir.ui.view">
-        <field name="name">subscription.contracts.line.view.tree</field>
+        <field name="name">subscription.contracts.line.view.list</field>
         <field name="model">subscription.contracts.line</field>
         <field name="arch" type="xml">
             <list editable="bottom">
